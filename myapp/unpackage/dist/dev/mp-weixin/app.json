@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/sort/sort",
+    "pages/earnm/earnm",
+    "pages/me/me"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "leaf-app",
+    "navigationBarBackgroundColor": "#ffff00",
+    "backgroundColor": "#ffff00"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tab_path_icon/home.png",
+        "selectedIconPath": "static/tab_path_icon/home_selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/sort/sort",
+        "iconPath": "static/tab_path_icon/sort.png",
+        "selectedIconPath": "static/tab_path_icon/sort_selected.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/earnm/earnm",
+        "iconPath": "static/tab_path_icon/earnm.png",
+        "selectedIconPath": "static/tab_path_icon/earnm_selected.png",
+        "text": "赚钱"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "static/tab_path_icon/me.png",
+        "selectedIconPath": "static/tab_path_icon/me_selected.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

@@ -1,0 +1,62 @@
+/* 水平间距 */
+/* 水平间距 */
+.container {
+  padding: 0;
+  font-size: 14px;
+  line-height: 24px;
+  background-color: #fff000;
+}
+.status_bar {
+  height: var(--status-bar-height);
+  width: 100%;
+}
+.nav_search {
+  width: 350rpx;
+  border-radius: 10rpx;
+  background-color: #ffff7f;
+}
+.show {
+  border: 1px solid green;
+}
+.swiper-box {
+  height: 250rpx;
+  background-color: white;
+}
+.swiper-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 250rpx;
+  color: #fff;
+}
+.nav_bts {
+  width: 100%;
+  padding-top: 10rpx;
+  text-align: center;
+  background-color: whitesmoke;
+}
+.goods_show_box {
+  width: 100%;
+  text-align: center;
+  background-color: #d0ddff;
+}
+.goods_show_img {
+  border-radius: 20rpx;
+}
+.goods_show_img_info {
+  position: absolute;
+  top: 200rpx;
+  text-align: left;
+  margin-left: 10rpx;
+  background: rgba(0, 0, 0, 0.5);
+}
+.goods_show_img_info_left {
+  background: #fff000;
+  padding: 0 5rpx 0 5rpx;
+  border-radius: 0 10rpx 0 0;
+}
+.goods_show_img_info_right {
+  color: #ffffff;
+  padding: 0 5rpx 0 5rpx;
+}

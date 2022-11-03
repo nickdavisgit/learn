@@ -2,14 +2,54 @@
 	"pages": [{
 		"path": "pages/index/index",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationStyle": "custom",
+			"app-plus": false
 		}
-	}],
+    },{
+		"path": "pages/sort/sort",
+		"style": {
+		}
+    },{
+		"path": "pages/earnm/earnm",
+		"style": {
+		}
+    },{
+		"path": "pages/me/me",
+		"style": {
+		}
+    }],
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/tab_path_icon/home.png",
+			"selectedIconPath": "static/tab_path_icon/home_selected.png",
+			"text": "首页"
+		},{
+			"pagePath": "pages/sort/sort",
+			"iconPath": "static/tab_path_icon/sort.png",
+			"selectedIconPath": "static/tab_path_icon/sort_selected.png",
+			"text": "分类"
+		},{
+			"pagePath": "pages/earnm/earnm",
+			"iconPath": "static/tab_path_icon/earnm.png",
+			"selectedIconPath": "static/tab_path_icon/earnm_selected.png",
+			"text": "赚钱"
+		},{
+			"pagePath": "pages/me/me",
+			"iconPath": "static/tab_path_icon/me.png",
+			"selectedIconPath": "static/tab_path_icon/me_selected.png",
+			"text": "我的"
+		}]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8",
+		"navigationBarTitleText": "leaf-app",
+		"navigationBarBackgroundColor": "#ffff00",
+		"backgroundColor": "#ffff00",
 		"app-plus": {
 			"background": "#efeff4"
 		}
