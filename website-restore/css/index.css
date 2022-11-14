@@ -1,0 +1,26 @@
+html,body{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("../images/bg.gif");
+}
+.show{
+	border: 1px solid green;
+}
+#login-box{
+	width: 40rem;
+	margin: auto;
+	margin-top: 10rem;
+}
+canvas[id="mycanvas"]{
+	float: right;
+}
+.login-hearder{
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	border-radius: 0.5rem;
+}
+
+

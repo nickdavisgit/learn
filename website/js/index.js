@@ -1,36 +1,58 @@
 $(function(){
+	function suijishu(min,max){
+		return Math.floor(Math.random()*(max-min+1)+min);
+	}
 	function sleep(duration){
 		return new Promise(function(resolve){
 			setTimeout(resolve,duration);
 		});
 	}
-	async function changeColor(color,duration){
-		$('#box-preserve-3d div').css({
-			"border": "1px solid "+color,
-			"background-image": "radial-gradient("+color+", yellow, aqua)"
+	
+	let window_w = $(window).width();
+	let window_h = $(window).height();
+	
+	let box_login_width = $('#box-login').width();
+	let box_login_height = $('#box-login').height();
+	
+	$('#box-login').css({
+		'top':((window_h/2)-(box_login_height/2))+'px',
+		'left':((window_w/2)-(box_login_width/2))+'px'
+	});
+	$('#box-bullte').css({
+		'width':(window_w)+'px',
+		'height':(window_h)+'px',
+	});
+	let bullte_height = Math.floor(window_h/20);
+	let bullte_width = bullte_height+10;
+	let row_n = Math.floor(window_h/bullte_height);
+	async function danmu(mtop,duration){
+		await sleep(duration*1000);
+		let bullte = $('<div></div>');
+		$('#box-bullte').append(bullte);
+		bullte.css({
+			'height':(bullte_height-5)+'px',
+			'width':(bullte_width)+'px',
+			'position':'absolute',
+			'margin-top':(mtop)+'px',
+			'margin-left':(-bullte_width)+'px',
+			'border-radius':Math.floor(bullte_height/4)+'px',
+			'background-image': 'url("images/cloud.png")',
+			'background-size': (bullte_width)+'px '+(bullte_height)+'px'
 		});
-		await sleep(duration);
+		bullte.animate({
+			'margin-left': (window_w)+'px',
+		},20000,function(){
+			bullte.remove();
+			danmu(mtop,suijishu(0,20));
+		});
 	}
-	async function main(){
-		while(true){
-			await changeColor("green",3000);
-			await changeColor("blue",1000);
-			await changeColor("red",2000);
-		}
+	
+	for (let i =0;i<row_n;i++) {
+		danmu(bullte_height*i,suijishu(0,20));
 	}
-	main();
-	function overZfx(){
-		$('#box-preserve-3d').css({'animation':'xuanzhuan 10s ease 1s 0 reverse backwards'});
-		$('#loginbox').css({'display':'block'});
-	}
-	function outZfx(){
-		$('#box-preserve-3d').css({'animation':'xuanzhuan 10s ease 1s infinite reverse none',});
-		$('#loginbox').css({'display':'none'});
-	}
-	$('#box-preserve-3d').on('mouseover',function(){
-		overZfx();
-	});
-	$('#box-preserve-3d').on('mouseout',function(){
-		outZfx();
-	});
+	
+	
+	
+	
+	
 });
