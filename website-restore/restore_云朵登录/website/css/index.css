@@ -1,7 +1,7 @@
-body{
-	padding: 0;
-	margin: 0;
-	background-image: url('../images/bg.gif');
+#box-bullte{
+	position: relative;
+	overflow: hidden;
+	background-image: linear-gradient(180deg,skyblue,aqua,#5c5cff);
 }
 #box-login{
 	position: fixed;
@@ -13,23 +13,16 @@ form{
 }
 form h2{
 	text-align: center;
-	color: white;
-	border-bottom: 0.1rem solid blue;
-}
-form label{
-	color: white;
+	border-bottom: 0.1rem solid #5c5cff;
 }
 .show{
-	border-radius: 0.5rem;
 	padding: 0.5rem;
+	box-shadow: 10px 10px 5px #888888;
 	animation: borderchange 5s ease 0s infinite normal forwards;
 }
 @keyframes borderchange {
 	0%{
-		border: 0.2rem solid aqua;
-	}
-	50%{
-		border: 0.2rem solid lawngreen;
+		border: 0.2rem solid #5c5cff;
 	}
 	100%{
 		border: 0.2rem solid blue;
