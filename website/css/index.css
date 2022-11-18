@@ -3,35 +3,3 @@ body{
 	margin: 0;
 	background-image: url('../images/bg.gif');
 }
-#box-login{
-	position: fixed;
-	top: 30%;
-	left: 30%;
-}
-form{
-	margin: 1rem;
-}
-form h2{
-	text-align: center;
-	color: white;
-	border-bottom: 0.1rem solid blue;
-}
-form label{
-	color: white;
-}
-.show{
-	border-radius: 0.5rem;
-	padding: 0.5rem;
-	animation: borderchange 5s ease 0s infinite normal forwards;
-}
-@keyframes borderchange {
-	0%{
-		border: 0.2rem solid aqua;
-	}
-	50%{
-		border: 0.2rem solid lawngreen;
-	}
-	100%{
-		border: 0.2rem solid blue;
-	}
-}
