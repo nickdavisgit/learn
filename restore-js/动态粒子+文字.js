@@ -3,7 +3,7 @@ $(function() {
 		constructor(x, y) {
 			this.x = x
 			this.y = y
-			this.radius = 0.8
+			this.radius = 3
 			this.speedX = this._getRandomRange(-1, 1)
 			this.speedY = this._getRandomRange(-1, 1)
 		}
@@ -27,6 +27,15 @@ $(function() {
 	//获取窗口大小
 	let window_width = $(window).innerWidth();
 	let window_height = $(window).innerHeight();
+	
+	let box_login_width = $('#box-login').width();
+	let box_login_height = $('#box-login').height();
+	
+	$('#box-login').css({
+		'top':((window_height/2)-(box_login_height/2))+'px',
+		'left':((window_width/2)-(box_login_width/2))+'px'
+	});
+	
 	// 粒子集合
 	let particles = []
 	// 粒子数量
@@ -38,8 +47,8 @@ $(function() {
 	// 边界碰撞检测
 	const collideDetect = true
 	// 是否有鼠标交互
-	const hasInteractMouse = true
-	const canvas = document.querySelector('canvas')
+	const hasInteractMouse = false
+	const canvas = document.getElementById("canvas-bg");
 	//设置canvas铺满屏幕
 	canvas.setAttribute('width',window_width);
 	canvas.setAttribute('height',window_height);
@@ -72,7 +81,7 @@ $(function() {
 
 	// 将粒子对象画到画布上
 	function drawParticles(ctx) {
-		ctx.fillStyle = "green";
+		ctx.fillStyle = "lightyellow";
 		ctx.beginPath()
 		for (let index = 0; index < particles.length; index++) {
 			const particle = particles[index]
@@ -101,12 +110,12 @@ $(function() {
 			particle.x += particle.speedX
 			particle.y += particle.speedY
 		}
-		ctx.stroke();
+		ctx.fill();
 	}
 
 	// 绘制粒子连线
 	function drawLines(ctx) {
-		ctx.strokeStyle = "aqua";
+		ctx.strokeStyle = "blue";
 		ctx.beginPath()
 		let arr = [...particles]
 		mouseOffset && (arr = [mouseOffset].concat(arr))
@@ -184,7 +193,54 @@ $(function() {
 		return Math.random() * (max - min) + min
 	}
 	
-	
-	
+	//通知画布
+	const canvas_nt = document.getElementById("canvas-nt");
+	//设置canvas铺满屏幕
+	canvas_nt.setAttribute('width',($('form').innerWidth()));
+	canvas_nt.setAttribute('height',($('form').innerHeight()));
+	const ctx_nt = canvas_nt.getContext("2d");
+	//定义通知
+	const font_size_h = 25;//通知标题字体大小
+	const font_size_w = 20;//通知内容字体大小
+	const world_width = 20;
+	const world_height = 20;
+	writeMain();
+	async function writeMain(){
+		let texts = "您好!欢迎使用本公司智能云系统!请注意,系统将定期于每周日晚上午10:00-下午11:30进行更新维护,对此带来的不便希望您能谅解！";
+		let x = 0;
+		let y = 50;
+		let n = Math.floor(canvas_nt.width/20)-1;
+		console.log(n);
+		while(true){
+			ctx_nt.font = font_size_h+"px sans-serif";
+			ctx_nt.save();
+			ctx_nt.fillText("通知",(canvas_nt.width/2)-25,font_size_h);
+			ctx_nt.restore();
+			for(let i=0;i<texts.length;i++){
+				await writeWorld(ctx_nt,x,y,texts[i],150);
+				x+=20;
+				if(i%n==0 && i!=0){
+					x=0;
+					y+=25;
+				}
+			}
+			x=0;
+			y=50;
+			await sleep(5*1000);
+			canvas_nt.width = canvas_nt.width;
+		}
+	}
+	async function writeWorld(ctx_nt,x,y,text,duration){
+		ctx_nt.font = font_size_w+"px sans-serif";
+		ctx_nt.save();
+		ctx_nt.fillText(text,x,y);
+		ctx_nt.restore();
+		await sleep(duration);
+	}
+	function sleep(duration){
+		return new Promise(function(resolve,reject){
+			setTimeout(resolve,duration);
+		});
+	}
 	
 });
