@@ -1,32 +1,143 @@
+body{
+	background-image: url("../images/bg.gif");
+}
+canvas {
+	border: 1px solid aqua;
+}
+label{
+	color: aqua;
+}
+h1{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	color: aqua;
+	text-align: center;
+}
+h1::before{
+	content: "";
+	position: absolute;
+	left: 10%;
+	width: 50px;
+	height: 10px;
+	border-radius: 0px 5px 5px 0px;
+	transform: skew(0deg,0deg);
+	z-index: 10;
+	background-image: linear-gradient(to right,transparent,rgba(0, 255, 255, 0.3),rgba(0, 255, 255, 0.5),aqua);
+	animation: lgliuguangl 3s linear 0s infinite ;
+}
+h1::after{
+	content: "";
+	position: absolute;
+	right: 10%;
+	width: 50px;
+	height: 10px;
+	border-radius: 5px 0px 0px 5px;
+	transform: skew(0deg,0deg);
+	z-index: 10;
+	background-image: linear-gradient(to right,aqua,rgba(0, 255, 255, 0.5),rgba(0, 255, 255, 0.3),transparent);
+	animation: lgliuguangr 3s linear 0s infinite ;
+}
+@keyframes lgliuguangl {
+	0%{
+		left:-100%;
+	}
+	100%{
+		left: 100%;
+	}
+}
+@keyframes lgliuguangr {
+	0%{
+		right:-100%;
+	}
+	100%{
+		right: 100%;
+	}
+}
 #login{
-	width: 450px;
-	height: 550px;
 	position: fixed;
 	left: 0;
 	right: 0;
-	margin:0 auto;
-	border: 5px solid rgba(0, 255, 255, 0.1);
-	background-color: rgba(85, 255, 255, 0.1);
+	top: 0;
+	bottom: 0;
+	margin: auto auto;
+	width: 500px;
+	height: 400px;
+	overflow: hidden;
+	animation: lg 3s ease 0s 1;
 }
-#login-header{
-	text-align: center;
-	font-weight: bold;
-	color: #008a8a;
-	animation: Lgheader 5s ease 0s infinite reverse forwards;
+.login-top{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 1px;
+	background-image: linear-gradient(90deg,transparent,aqua,transparent);
+	animation: ltop 3s ease 0s infinite;
 }
-
-@keyframes Lg {
-	
+.login-bottom{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 1px;
+	background-image: linear-gradient(90deg,transparent,aqua,transparent);
+	animation: lbottom 3s ease 0s infinite;
 }
-
-@keyframes Lgheader {
+.login-left{
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 1px;
+	background-image: linear-gradient(0deg,transparent,aqua,transparent);
+	animation: lleft 4s ease 0s infinite;
+}
+.login-right{
+	position: absolute;
+	right: 0;
+	height: 100%;
+	width: 1px;
+	background-image: linear-gradient(0deg,transparent,aqua,transparent);
+	animation: lright 4s ease 0s infinite;
+}
+@keyframes lg {
 	0%{
-		color: #008a8a;
-	}
-	50%{
-		color: #00c1c1;
+		width: 0px;
+		height: 0px;
 	}
 	100%{
-		color: aqua;
+		width: 500px;
+		height: 400px;
+	}
+}
+@keyframes ltop {
+	0%{
+		left: -500px;
+	}
+	100%{
+		left: 500px;
+	}
+}
+@keyframes lbottom {
+	0%{
+		right: -500px;
+	}
+	100%{
+		right: 500px;
+	}
+}
+@keyframes lright {
+	0%{
+		top: -400px;
+	}
+	100%{
+		top: 400px;
+	}
+}
+@keyframes lleft {
+	0%{
+		bottom: -400px;
+	}
+	100%{
+		bottom: 400px;
 	}
 }
