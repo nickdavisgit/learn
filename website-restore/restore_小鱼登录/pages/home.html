@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>canvas</title>
+ <style>
+  * {
+   margin: 0;
+   padding: 0;
+  }
+
+  canvas {
+   vertical-align: middle;
+   background: #000;
+  }
+ </style>
+</head>
+
+<body>
+ <canvas id="myCanvas"></canvas>
+ <script>
+  // 创建画布
+  let myCanvas = document.getElementById('myCanvas')
+  let ctx = myCanvas.getContext('2d')
+  // 自适应窗口
+  let width = myCanvas.width = window.innerWidth
+  let height = myCanvas.height = window.innerHeight
+  window.addEventListener('resize', () => {
+   width = myCanvas.width = window.innerWidth
+   height = myCanvas.height = window.innerHeight
+  })
+  // 绘制雨滴
+  let raindropArr = []
+  function Raindrop(x, y, w, h, l, r, dr, maxR, a, va) {
+   this.x = rand(0, window.innerWidth) // 雨滴的x轴
+   this.y = y || 0 // 雨滴的y轴
+   this.dy = rand(2, 4) // 雨滴的加速度
+   this.w = w || 2 // 雨滴的宽度
+   this.h = h || 10 // 雨滴的高度
+   this.l = rand(0.8 * height, 0.9 * height) // 雨滴的下落高度
+   this.r = r || 1 // 波纹半径
+   this.dr = dr || 1 // 波纹增加半径
+   this.maxR = maxR || 50 // 波纹最大半径
+   this.a = a || 1 // 波纹透明度
+   this.va = 0.96 // 波纹透明度系数
+  }
+  Raindrop.prototype = {
+   draw: function (index) { // 绘制雨滴
+    if (this.y > this.l) {
+     ctx.beginPath()
+     ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)
+     ctx.strokeStyle = `rgba(0,191,255,${this.a})`
+     ctx.stroke()
+    } else {
+     ctx.fillStyle = 'skyBlue'
+     ctx.fillRect(this.x, this.y, this.w, this.h)
+    }
+    this.update(index)
+   },
+   update: function (index) { // 更新雨滴坐标 运动起来
+    if (this.y > this.l) {
+     if (this.a > 0.03) {
+      this.r += this.dr
+      if (this.r > this.maxR) {
+       this.a *= this.va
+      }
+     } else {
+      this.a = 0
+      raindropArr.splice(index, 1)
+     }
+    } else {
+     this.y += this.dy
+    }
+   }
+  }
+  function rand(min, max) {
+   return Math.random() * (max - min) + min
+  }
+  setInterval(() => {
+   let raindrop = new Raindrop()
+   raindropArr.push(raindrop)
+  }, 100)
+  setInterval(() => {
+   ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'
+   ctx.fillRect(0, 0, myCanvas.width, myCanvas.height)
+   for (let i = 0; i < raindropArr.length; i++) {
+    raindropArr[i].draw(i)
+   }
+  }, 30)
+ </script>
+</body>
+
+</html>

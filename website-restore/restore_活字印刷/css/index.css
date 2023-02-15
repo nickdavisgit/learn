@@ -1,0 +1,255 @@
+body{
+	background-image: url("../images/bg.gif");
+}
+
+.box-login{
+	width: 350px;
+	height: 350px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 25%;
+	margin: auto auto;
+	transform-style: preserve-3d;
+}
+/* login-start */
+label{
+	color: aqua;
+}
+h1{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	color: aqua;
+	text-align: center;
+}
+h1::before{
+	content: "";
+	position: absolute;
+	left: 10%;
+	width: 50px;
+	height: 10px;
+	border-radius: 0px 5px 5px 0px;
+	transform: skew(0deg,0deg);
+	z-index: 10;
+	background-image: linear-gradient(to right,transparent,rgba(0, 255, 255, 0.3),rgba(0, 255, 255, 0.5),aqua);
+	animation: lgliuguangl 3s linear 0s infinite ;
+}
+h1::after{
+	content: "";
+	position: absolute;
+	right: 10%;
+	width: 50px;
+	height: 10px;
+	border-radius: 5px 0px 0px 5px;
+	transform: skew(0deg,0deg);
+	z-index: 10;
+	background-image: linear-gradient(to right,aqua,rgba(0, 255, 255, 0.5),rgba(0, 255, 255, 0.3),transparent);
+	animation: lgliuguangr 3s linear 0s infinite ;
+}
+@keyframes lgliuguangl {
+	0%{
+		left:-100%;
+	}
+	100%{
+		left: 100%;
+	}
+}
+@keyframes lgliuguangr {
+	0%{
+		right:-100%;
+	}
+	100%{
+		right: 100%;
+	}
+}
+#login{
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 1000px;
+	margin: auto auto;
+	width: 350px;
+	height: 350px;
+	overflow: hidden;
+	animation: lg 3s ease 0s 1;
+}
+.login-top{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 1px;
+	background-image: linear-gradient(90deg,transparent,aqua,transparent);
+	animation: ltop 3s ease 0s infinite;
+}
+.login-bottom{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 1px;
+	background-image: linear-gradient(90deg,transparent,aqua,transparent);
+	animation: lbottom 3s ease 0s infinite;
+}
+.login-left{
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 1px;
+	background-image: linear-gradient(0deg,transparent,aqua,transparent);
+	animation: lleft 4s ease 0s infinite;
+}
+.login-right{
+	position: absolute;
+	right: 0;
+	height: 100%;
+	width: 1px;
+	background-image: linear-gradient(0deg,transparent,aqua,transparent);
+	animation: lright 4s ease 0s infinite;
+}
+@keyframes lg {
+	0%{
+		width: 0px;
+		height: 0px;
+	}
+	100%{
+		width: 350px;
+		height: 350px;
+	}
+}
+@keyframes ltop {
+	0%{
+		left: -500px;
+	}
+	100%{
+		left: 500px;
+	}
+}
+@keyframes lbottom {
+	0%{
+		right: -500px;
+	}
+	100%{
+		right: 500px;
+	}
+}
+@keyframes lright {
+	0%{
+		top: -400px;
+	}
+	100%{
+		top: 400px;
+	}
+}
+@keyframes lleft {
+	0%{
+		bottom: -400px;
+	}
+	100%{
+		bottom: 400px;
+	}
+}
+/* login-end */
+
+.box{
+	width: 250px;
+	height: 250px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 25%;
+	margin: auto auto;
+	transform-style: preserve-3d;
+	transform: rotateX(45deg) rotateY(30deg);
+	animation: boxrotate 10s linear 0s infinite;
+	
+}
+@keyframes boxrotate {
+	0%{
+		transform: rotateX(45deg) rotateY(30deg) rotateZ(0deg);
+	}
+	100%{
+		transform: rotateX(45deg) rotateY(30deg) rotateZ(360deg);
+	}
+}
+.box-3d{
+	width: 50px;
+	height: 50px;
+	top: 0px;
+	left: 0px;
+	display: none;
+	position: absolute;
+	transform-style: preserve-3d;
+	transform: rotateX(0deg) rotateY(0deg);
+}
+div[class^="box-3d"] div{
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	position: absolute;
+	color: blue;
+	background-color: aqua;
+	border: 1px solid blue;
+}
+.animaton3d{
+	animation: anim3d 5s linear 0s infinite;
+}
+@keyframes anim3d {
+	0%{
+		transform: translateZ(0px);
+	}
+	10%{
+		transform: translateZ(100px);
+	}
+	20%{
+		transform: translateZ(100px) rotateX(0deg) rotateY(0deg);
+	}
+	50%{
+		transform: translateZ(100px) rotateX(180deg) rotateY(180deg);
+	}
+	70%{
+		transform: translateZ(100px) rotateX(0deg) rotateY(0deg);
+	}
+	90%{
+		transform: translateZ(100px);
+	}
+	100%{
+		transform: translateZ(0px);
+	}
+}
+.top{
+	transform: rotateX(90deg) translateZ(25px);
+}
+.bottom{
+	transform: rotateX(-90deg) translateZ(25px);
+}
+.front{
+	transform: translateZ(25px);
+}
+.back{
+	transform: translateZ(-25px);
+}
+.left{
+	transform: rotateY(90deg) translateZ(25px);
+}
+.right{
+	transform: rotateY(-90deg) translateZ(25px);
+}
+
+@keyframes flight {
+	0%{
+		border: 1px solid yellow;
+		background: radial-gradient(circle,yellow,greenyellow,aqua);
+	}
+	50%{
+		border: 1px solid green;
+		background: radial-gradient(circle,green,limegreen,aqua);
+	}
+	100%{
+		border: 1px solid red;
+		background: radial-gradient(circle,red,deeppink,aqua);
+	}
+}
