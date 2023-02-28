@@ -6,43 +6,114 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>主页</title>
 		<script src="./common/jquery-3.2.1/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
-		<link href="./common/bootstrap-5.2.2/css/bootstrap.min.css" rel="stylesheet">
-		<link href="./common/bootstrap-5.2.2/font/bootstrap-icons.css" rel="stylesheet">
-		<script src="./common/bootstrap-5.2.2/js/bootstrap.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="./common/layui/css/layui.css">
+		<script src="./common/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" href="./css/index.css">
 		<script src="./js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			layui.config({
+				base: './common/modules/' //你存放新模块的目录，注意，不是 layui 的模块目录
+			}).use('index',function(){
+				console.log(layui.index);
+			}); //加载入口
+		</script> 
 	</head>
 	<body>
-		<canvas id="myCanvas" width="600" height="600"></canvas>
-		<div id="login">
-			<i class="login-top"></i>
-			<i class="login-bottom"></i>
-			<i class="login-left"></i>
-			<i class="login-right"></i>
-			<div class="container mt-3">
-				<div class="d-grid">
-					<h1>系统登录</h1>
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo layui-bg-black">管理系统</div>
+				<!-- 头部区域（可配合layui 已有的水平导航） -->
+				<ul class="layui-nav layui-layout-left">
+					<li class="layui-nav-item" lay-header-event="menuLeft" lay-unselect>
+						<a href="javascript:;">
+							<i class="layui-icon layui-icon-spread-left"></i>
+						</a>
+					</li>
+					<li class="layui-nav-item">
+						<a href="javascript:;">快捷导航</a>
+						<dl class="layui-nav-child">
+							<dd><a href=""><i class="layui-icon layui-icon-cols"></i>导航设置</a></dd>
+							<dd><a href=""><i class="layui-icon layui-icon-key"></i>权限设置</a></dd>
+						</dl>
+					</li>
+				</ul>
+				<ul class="layui-nav layui-layout-right">
+					<li class="layui-nav-item layui-hide layui-show-md-inline-block">
+						<a href="javascript:;">
+							<img src="./images/海豚.gif" class="layui-nav-img">
+							曹操
+						</a>
+						<dl class="layui-nav-child">
+							<dd><a href="">个人信息</a></dd>
+							<dd><a href="">我的通知</a></dd>
+							<dd><a href="">退出</a></dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+						<a href="javascript:;">
+							<i class="layui-icon layui-icon-more-vertical"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="navSide">
+						<li class="layui-nav-item layui-this">
+							<a href="javascript:;" url="home"><i class="layui-icon layui-icon-home"></i>首页</a>
+						</li>
+						<li class="layui-nav-item layui-nav-itemed">
+							<a href="javascript:;"><i class="layui-icon layui-icon-username"></i>部门管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="javascript:;" url="deptgroup"><i class="layui-icon layui-icon-group"></i>部门组管理</a></dd>
+								<dd><a href="javascript:;" url="userinfo"><i class="layui-icon layui-icon-list"></i>用户信息管理</a></dd>
+								<dd><a href="javascript:;" url="auth"><i class="layui-icon layui-icon-auz"></i>用户权限管理</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;"><i class="layui-icon layui-icon-user"></i>学生管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="javascript:;"url="class"><i class="layui-icon layui-icon-group"></i>班级管理</a></dd>
+								<dd><a href="javascript:;" url="studentinfo"><i class="layui-icon layui-icon-list"></i>学生管理</a></dd>
+								<dd><a href="javascript:;" url="searchmark"><i class="layui-icon layui-icon-list"></i>成绩查询</a></dd>
+								<dd>
+									<a href="javascript:;">第三级菜单</a>
+									<dl class="layui-nav-child">
+									    <!-- 二级菜单 -->
+									    <dd><a href="">移动模块</a></dd>
+									    <dd><a href="">后台模版</a></dd>
+									    <dd><a href="">电商平台</a></dd>
+									</dl>
+								</dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item"><a href="javascript:;" url="schoolnotice"><i class="layui-icon layui-icon-notice"></i>学校通知</a></li>
+						<li class="layui-nav-item"><a href="javascript:;" url="rules"><i class="layui-icon layui-icon-auz"></i>导航设置</a></li>
+						<li id="test" class="layui-nav-item"></li>
+					</ul>
 				</div>
-				<form action="">
-				  <div class="mb-3 mt-3">
-					<label for="email" class="form-label">账号:</label>
-					<input type="email" class="form-control" id="email" placeholder="请输入账号" name="email">
-				  </div>
-				  <div class="mb-3">
-					<label for="pwd" class="form-label">密码:</label>
-					<input type="password" class="form-control" id="pwd" placeholder="请输入密码" name="pswd">
-				  </div>
-				  <div class="form-check mb-3">
-					<label class="form-check-label">
-					  <input class="form-check-input" type="checkbox" name="remember"> 记住密码
-					</label>
-				  </div>
-				  <div class="d-grid">
-				      <button type="button" class="btn btn-info btn-block">立即登录</button>
-				    </div>
-				</form>
+			</div>
+
+			<div class="layui-body">
+				<!-- 内容主体区域 -->
+				<div class="layui-tab" lay-filter="iframeTab" lay-allowClose="true">
+					<ul class="layui-tab-title">
+						<li class="layui-this" lay-id="home" ><i class="layui-icon layui-icon-home"></i>首页</li>
+					</ul>
+					<div class="layui-tab-content">
+						<div class="layui-tab-item layui-show">
+							<iframe onload="ifload(this);" src="pages/home.html" width="100%" height="100%"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+				xx学校管理系统@版权由leaf有限责任公司所有！
 			</div>
 		</div>
 	</body>
 </html>
-

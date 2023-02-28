@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>首页</title>
+	<script src="../common/jquery-3.2.1/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<link href="../common/bootstrap-5.2.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../common/bootstrap-5.2.2/font/bootstrap-icons.css" rel="stylesheet">
+	<script src="../common/bootstrap-5.2.2/js/bootstrap.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../common/chart.js/chart.js"></script>
+	<link rel="stylesheet" href="../css/pages/home.css">
+	<script src="../js/pages/home.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6 box-border">
+				<canvas id="students_sex_nums" width="400" height="200"></canvas>
+			</div>
+			<div class="col-md-6 box-border">
+				<canvas id="student_test_res" width="400" height="200"></canvas>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 box-border">
+				<canvas id="student_connect_res" width="400" height="200"></canvas>
+			</div>
+		</div>
+		<div class="row bg-light box-border-bottom">
+			<div class="col-md-12"><h2 class="mx-auto text-primary" style="width: 20rem;"><i class="bi bi-trophy-fill"></i>年级前10名</h2></div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<table class="table table-hover">
+							    <thead>
+							      <tr>
+							        <th>姓名</th>
+							        <th>年级</th>
+							        <th>班级</th>
+							        <th>总分</th>
+							      </tr>
+							    </thead>
+							    <tbody>
+							      <tr>
+							        <td>张辽</td>
+									<td>高三</td>
+							        <td>高三2班</td>
+							        <td>650分</td>
+							      </tr>
+							      <tr>
+							        <td>赵云</td>
+							        <td>高三</td>
+							        <td>高三1班</td>
+									<td>649分</td>
+							      </tr>
+							      <tr>
+							        <td>郭奉孝</td>
+							        <td>高三</td>
+							        <td>高三2班</td>
+							        <td>648分</td>
+							      </tr>
+								  <tr>
+								    <td>诸葛孔明</td>
+								    <td>高三</td>
+								    <td>高三1班</td>
+								    <td>647分</td>
+								  </tr>
+							    </tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
