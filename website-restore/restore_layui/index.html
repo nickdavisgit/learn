@@ -61,7 +61,28 @@
 				<div class="layui-side-scroll">
 					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
 					<ul class="layui-nav layui-nav-tree" lay-filter="navSide">
-						
+						<li class="layui-nav-item layui-this">
+							<a href="javascript:;" url="home"><i class="layui-icon layui-icon-home"></i>首页</a>
+						</li>
+						<li class="layui-nav-item layui-nav-itemed">
+							<a href="javascript:;"><i class="layui-icon layui-icon-username"></i>部门管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="javascript:;" url="deptgroup"><i class="layui-icon layui-icon-group"></i>部门组管理</a></dd>
+								<dd><a href="javascript:;" url="userinfo"><i class="layui-icon layui-icon-list"></i>用户信息管理</a></dd>
+								<dd><a href="javascript:;" url="auth"><i class="layui-icon layui-icon-auz"></i>用户权限管理</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;"><i class="layui-icon layui-icon-user"></i>学生管理</a>
+							<dl class="layui-nav-child">
+								<dd><a href="javascript:;"url="class"><i class="layui-icon layui-icon-group"></i>班级管理</a></dd>
+								<dd><a href="javascript:;" url="studentinfo"><i class="layui-icon layui-icon-list"></i>学生管理</a></dd>
+								<dd><a href="javascript:;" url="searchmark"><i class="layui-icon layui-icon-list"></i>成绩查询</a></dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item"><a href="javascript:;" url="schoolnotice"><i class="layui-icon layui-icon-notice"></i>学校通知</a></li>
+						<li class="layui-nav-item"><a href="javascript:;" url="rules"><i class="layui-icon layui-icon-auz"></i>导航设置</a></li>
+						<li id="test" class="layui-nav-item"></li>
 					</ul>
 				</div>
 			</div>
