@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>home</title>
+	<script src="../common/jquery-3.2.1/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../common/chart.js/chart.js"></script>
+	<link rel="stylesheet" href="../common/layui/css/layui.css">
+	<script src="../common/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		layui.config({
+			base: '../common/modules/' //你存放新模块的目录，注意，不是 layui 的模块目录
+		}).use('auth',function(){
+			console.log(layui.auth);
+		}); //加载入口
+	</script>
+	<style>
+		.show{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div class="layui-fluid">
+		<div class="layui-row">
+			<div class="layui-col-md12 show">
+				<div id="authTable" lay-filter="authT"></div>
+				<script type="text/html" id="toolbarTop">
+				  <div class="layui-btn-container">
+				    <button class="layui-btn layui-btn-sm" lay-event="add">添加</button>
+				    <button class="layui-btn layui-btn-sm" lay-event="update">编辑</button>
+				    <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+				    <button class="layui-btn layui-btn-sm" lay-event="search">搜索</button>
+				  </div>
+				</script>
+				<script type="text/html" id="barCols">
+				  <a class="layui-btn layui-btn-xs" lay-event="auth">授权</a>
+				  <a class="layui-btn layui-btn-xs" lay-event="on">启用</a>
+				  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="off">禁用</a>
+				</script>
+			</div>
+		</div>
+	</div>
+	<form class="layui-form" action="" lay-filter="formAuth">
+	<table class="layui-table" id="auth" style="display: none;">
+		<colgroup>
+		    <col>
+		  </colgroup>
+		<tbody>
+			<tr>
+			  <td>权限组名称:</td>
+			  <td>
+				  <input type="text" name="title" required  lay-verify="required" placeholder="请输入权限组名称" autocomplete="off" class="layui-input">
+			  </td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button type="button" class="layui-btn layui-btn-fluid" lay-submit lay-filter="formSub">提交</button>     
+				</td>
+			</tr>
+		  </tbody>
+		</table>
+	</form>
+	<div id="authTree" style="display: none;"></div>
+</body>
+</html>

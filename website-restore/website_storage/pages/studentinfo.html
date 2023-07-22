@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>home</title>
+	<script src="../common/jquery-3.2.1/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../common/chart.js/chart.js"></script>
+	<link rel="stylesheet" href="../common/layui/css/layui.css">
+	<script src="../common/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		layui.config({
+			base: '../common/modules/' //你存放新模块的目录，注意，不是 layui 的模块目录
+		}).use('studentinfo',function(){
+			console.log(layui.studentinfo);
+		}); //加载入口
+	</script>
+	<style>
+		.show{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div class="layui-fluid">
+		<div class="layui-row">
+			<div class="layui-col-md2 show">
+				<div id="classTree"></div>
+			</div>
+			<div class="layui-col-md10 show">
+				<div id="studentTable" lay-filter="studentT"></div>
+				<script type="text/html" id="toolbarTop">
+				  <div class="layui-btn-container">
+				    <button class="layui-btn layui-btn-sm" lay-event="add">录入学生信息</button>
+				    <button class="layui-btn layui-btn-sm" lay-event="update">信息修改</button>
+				    <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+				    <button class="layui-btn layui-btn-sm" lay-event="search">搜索</button>
+				  </div>
+				</script>
+				<script type="text/html" id="barCols">
+				  <a class="layui-btn layui-btn-xs" lay-event="detail">查看信息</a>
+				  <a class="layui-btn layui-btn-xs" lay-event="edit">录入成绩</a>
+				  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">考勤</a>
+				</script>
+			</div>
+		</div>
+	</div>
+	<form class="layui-form" action="" lay-filter="formSinfo">
+	<table class="layui-table" id="studentInfo" style="display: none;">
+		<colgroup>
+		    <col width="100">
+		    <col width="200">
+		    <col width="100">
+		    <col width="200">
+		    <col width="100">
+		    <col width="200">
+		    <col>
+		  </colgroup>
+		<tbody>
+			<tr>
+			  <td>姓名:</td>
+			  <td>
+				  <input type="text" name="uname" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+			  </td>
+			  <td>性别:</td>
+			  <td>
+				  <input type="radio" name="usex" value="男" title="男">
+				  <input type="radio" name="usex" value="女" title="女" checked>
+			</td>
+			  <td>年龄:</td>
+			  <td>
+				  <input type="text" name="uage" required  lay-verify="required" placeholder="请输入年龄" autocomplete="off" class="layui-input">
+			  </td>
+			  <td rowspan="2">头像</td>
+			</tr>
+			<tr>
+				<td>密码:</td>
+				<td><input type="password" name="upassword" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input"></td>
+				<td>电话:</td>
+				<td>
+					<input type="text" name="uphone" required  lay-verify="required" placeholder="请输入电话" autocomplete="off" class="layui-input">
+				</td>
+				<td>邮箱:</td>
+				<td>
+					<input type="text" name="uemail" required  lay-verify="required" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+				</td>
+			</tr>
+			<tr>
+				<td>最高学历:</td>
+				<td>
+					<input type="text" name="degree" required  lay-verify="required" placeholder="请输入学位" autocomplete="off" class="layui-input">
+				</td>
+				<td>毕业院校:</td>
+				<td colspan="3">
+					<input type="text" name="school" required  lay-verify="required" placeholder="请输入毕业院校" autocomplete="off" class="layui-input">
+				</td>
+				<td>上传</td>
+			</tr>
+			<tr>
+				<td>身份证号码:</td>
+				<td colspan="6">
+					<input type="text" name="idcard" required  lay-verify="required" placeholder="请输入身份证号码" autocomplete="off" class="layui-input">
+				</td>
+			</tr>
+			<tr>
+				<td>住址:</td>
+				<td colspan="6">
+					<input type="text" name="address" required  lay-verify="required" placeholder="请输入住址" autocomplete="off" class="layui-input">
+				</td>
+			</tr>
+			<tr>
+				<td>所属班级:</td>
+				<td colspan="6">
+					<select name="dpmid" lay-verify="required">
+					        <option value=""></option>
+					        <option value="0">北京</option>
+					        <option value="1">上海</option>
+					        <option value="2">广州</option>
+					        <option value="3">深圳</option>
+					        <option value="4">杭州</option>
+					      </select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="7">
+					<button type="button" class="layui-btn layui-btn-fluid" lay-submit lay-filter="formSub">提交</button>     
+				</td>
+			</tr>
+		  </tbody>
+		</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>home</title>
+	<script src="../common/jquery-3.2.1/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../common/chart.js/chart.js"></script>
+	<link rel="stylesheet" href="../common/layui/css/layui.css">
+	<script src="../common/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/pages/home.js" type="text/javascript" charset="utf-8"></script>
+	<style>
+		.show {
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div class="layui-fluid">
+		<div class="layui-row">
+			<div class="layui-col-md6 show">
+				<canvas id="students_sex_nums" width="400" height="200"></canvas>
+			</div>
+			<div class="layui-col-md6 show">
+				<canvas id="student_test_res" width="400" height="200"></canvas>
+			</div>
+		</div>
+		<div class="layui-row">
+			<div class="layui-col-md12 show">
+				<canvas id="student_connect_res" width="400" height="200"></canvas>
+			</div>
+		</div>
+		<div class="layui-row">
+			<div class="layui-col-md12 show">
+				<table class="layui-table" id="dept">
+					<thead>
+						<tr>
+							<th>班级</th>
+							<th>姓名</th>
+							<th>总分</th>
+							<th>排名</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						  <td>高三xx班</td>
+						  <td>张辽</td>
+						  <td>580分</td>
+						  <td>2</td>
+						</tr>
+					  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

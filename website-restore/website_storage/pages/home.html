@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../common/jquery-3.2.1/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="../common/layui/css/layui.css">
+		<script src="../common/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<!-- <script src="../js/pages/test.js" type="text/javascript" charset="utf-8"></script> -->
+		<script>
+			layui.config({
+				base: '../common/modules/' //你存放新模块的目录，注意，不是 layui 的模块目录
+			}).use('rules',function(){
+				console.log(layui.rules);
+			}); //加载入口
+		</script>
+	</head>
+	<body>
+		<div id="rulesTree"></div>
+	</body>
+</html>
