@@ -1,0 +1,23 @@
+
+import time
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+
+from selenium.webdriver.common.proxy import Proxy, ProxyType
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+# 设置代理IP的地址和端口号
+proxy_host = '49.51.184.233'
+proxy_port = '8080'
+service = ChromeService(executable_path='chromedriver.exe')
+options = webdriver.ChromeOptions()
+options.add_argument('--proxy-server=http://{}:{}'.format(proxy_host, proxy_port))
+driver = webdriver.Chrome(service=service, options=options)
+
+driver.get('http://httpbin.org/ip')
+print(driver.page_source)
+
+# 释放资源
+driver.quit()
